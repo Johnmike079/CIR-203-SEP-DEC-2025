@@ -1,0 +1,28 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+    def display(self):
+        current = self.head
+        while current:
+            s = current.data
+            print(f"{s['name']} ({s['adm_no']}): {s['units_grades']}")
+            current = current.next
+students = LinkedList()
+s1 = {'name': 'John', 'adm_no': '079', 'units_grades': {'CIR 203': 'A', 'CIM 217': 'B', 'CIR 205': 'A'}}
+s2 = {'name': 'Mike', 'adm_no': '176', 'units_grades': {'CIR 201': 'B', 'CIM 217': 'C', 'CIR 205': 'A'}}
+students.append(s1)
+students.append(s2)
+students.display()
